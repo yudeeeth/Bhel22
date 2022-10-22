@@ -21,7 +21,7 @@ So for each component the following things will happen.
 
 ## Work Assignment
 
-Like we discussed, first we ll make a doc listing all the fuctions requried and the inputs, outputs, description, owner etc. And we ll work on them. Please take a look at the guidelines before working. For any other doubts contact me directly.
+Like we discussed, first we ll make a doc listing all the fuctions requried and the inputs, outputs, description, owner etc. And we ll work on them. Please take a look at the guidelines before working. For any other doubts contact me directly.  work will be assigned in [link](https://docs.google.com/spreadsheets/d/1x2Nz0RtNkf-k6_KUXr8Ht5l5V0QjCEHh-0cQRxbPjrY/edit?usp=sharing)
 
 ## Details of Design
 

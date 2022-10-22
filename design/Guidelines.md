@@ -15,7 +15,17 @@ So we will be using github extensively in the course of a few weeks. So here i l
 * if there arent any commits  on main then you can just push your branch to remote.
 * After this we ll check the changes and merge it togethor.
 
-## 2 Git commit messages
+## 2 Recommended Tools
+
+Download the following vscode extensions for making your dev life easier
+
+1. REST Client or Thunder client for api testing
+2. ES7+ React/Redux/React-Native snippets for react snippets ike creating a new component
+3. Git graph to understand git commits and branches
+4. Office Viewer (Markdown Editor) for viewing all kinds of files like png, exel, pdf, markdown, etc
+5. Colorful comments recommended if you like to color code your comments
+
+## 3 Git commit messages
 
 Write your messages using this as a guide
 
