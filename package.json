@@ -1,11 +1,13 @@
 {
   "name": "bhel22",
   "version": "0.1.0",
+  "proxy":"http://localhost:5000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "jsmodbus": "^4.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
@@ -16,7 +18,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "diag": "./server/emulator/diagslave/x86_64-linux-gnu/diagslave -p 5050",
+    "serve": "node server/serve.js",
+    "wrap": "node server/jsmwrapper.js",
+    "chip": "node server/chip.js",
+    "compile": "npm run build && npm run serve"
   },
   "eslintConfig": {
     "extends": [
