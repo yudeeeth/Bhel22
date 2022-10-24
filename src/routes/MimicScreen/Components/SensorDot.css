@@ -1,0 +1,52 @@
+.sensor-dots {
+    position: absolute;
+    background-color: black;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    translate: -15px -15px;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    overflow-x: visible;
+}
+.sensor-dots-inner{
+    position:relative;
+    z-index: 60;
+    background-color: rgba(159, 159, 159, 0.706);
+    width:40px;
+    height:40px;
+    color:white;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sensor-dots-hint{
+    position:absolute;
+    width: 16rem;
+    border: 2px solid black;
+    border-radius: 0rem 1rem 1rem 1rem;
+    background-color: white;
+    padding:1rem;
+    font-size: large;
+    z-index: 100;
+    color:black;
+    translate: 50% 75%;
+}
+
+.sensor-dots-DB{
+    position:absolute;
+    width: fit-content;
+    font-size: 2rem;
+    z-index: 10;
+    color:black;
+    translate: 80% 80%;
+    /* border: 1px solid black; */
+}
+
+div[blink="true"]{
+    background-color: red;
+}
