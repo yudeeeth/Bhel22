@@ -18,7 +18,7 @@ npm run start
 
 ```
 
-## /Server
+## /server
 
 The files in this correspond to the the backend.
 
@@ -30,7 +30,7 @@ jsmwrapper => a wrapper for jsmodbus created to be modifiable if jsmodbuspackage
 
 apidev.rest => a rest client to quickly check the working of api routes in serve.js
 
-## /Design
+## /design
 
 The contents of this dircetory correspond to the design and implementation details.
 
@@ -38,8 +38,6 @@ imeage/ => holds images for the mg files in this folder
 
 Design.md => Simplified Design specification
 
-Guidelines.md => a set of recommended tools and guidelines for streamlining your workflow
-
-## src
+## /src
 
 The react frontend code goes here, ideally we'd like to keep the files organised, placing routes in their respective routes.
