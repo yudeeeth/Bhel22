@@ -1,0 +1,15 @@
+.nav
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.but{
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+    width:6rem;
+    margin-top: 8rem;
+    height: 3rem;
+color:black;
+background-color: white;
+}

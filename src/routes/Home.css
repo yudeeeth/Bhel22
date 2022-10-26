@@ -1,0 +1,88 @@
+
+.sonic
+{
+    background-color: white;
+    height: 4rem;
+    width: 20rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.bar-graph
+{
+    background-color: red;
+  color:white;
+}
+
+.freq-spec
+{
+    background-color: green;
+    color:white;
+}
+.trends
+{
+    background-color:  #FFCA37;
+    color:white;
+}
+
+.mimic
+{
+    background-color: olive;
+    color:white;
+}
+.sens-prof
+{
+    background-color: aqua;
+}
+.settings
+{
+    background-color: purple;
+}
+
+.status
+{
+    background-color: indigo;
+}
+.help
+{
+    background-color: fuchsia;
+}
+.btn{
+  border-style: groove;
+   border-color: #5A5A5A;
+    color:white;
+    width: 20rem;
+   margin-left: 0.5rem;
+   margin-right: 0.5rem;
+    height: 8.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    align-items: center;
+}
+
+
+/* IconButton
+{
+
+    border-style: groove;
+    border-color: #5A5A5A;
+     color:white;
+     width: 20rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+     height: 8.5rem;
+} */
+.flex-container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 0.2rem;
+  }
+  .flex-container-2,.flex-container-3
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+margin-top: 0.2rem;
+  }

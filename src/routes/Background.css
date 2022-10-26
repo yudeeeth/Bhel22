@@ -1,0 +1,51 @@
+body
+{
+    background: repeating-linear-gradient(
+  to right,
+  #c4c7c9 0px, 
+   #e8edef 10px, 
+  #c4c6c6 20px,
+  #c0c2c3 20px
+);
+    height:100%;
+}
+
+/* .whole
+{
+    position: relative;
+    min-height: 100%;  
+} */
+
+
+
+ 
+ 
+  
+.footer
+{
+    display:flex;
+justify-content: space-between;
+flex-direction: column;
+  /* height: 100%; */
+   position: absolute;
+   bottom: 0;
+}
+.logo
+{
+   
+  margin-left: 2rem;
+   bottom: 0;
+
+}
+  .time
+  {
+    color:black;
+   margin-right: 1rem;
+    position: absolute;
+    text-align: right;
+    bottom: 2rem;
+    width: 95rem;
+    font-weight: 600;
+    font-size: 1rem;
+ 
+  }
