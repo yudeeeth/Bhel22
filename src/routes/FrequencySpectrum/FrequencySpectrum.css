@@ -1,0 +1,28 @@
+.FrequencySpectrum {
+   margin:0;
+}
+
+.Title {
+    text-align: center;   
+    font-weight: 700; 
+    font-size: 1.5rem;
+    color:blue;
+}
+
+.dbValue {
+    text-align: center;
+    color:blue;
+    font-size: 1.2rem;
+    margin-top: -10px;
+
+}
+
+#frequencyGraph {
+    width:80%;
+    height:150vh;
+    margin:auto;
+}
+
+.graphHeader {
+    margin-left:10rem;
+}
