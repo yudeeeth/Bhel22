@@ -1,33 +1,39 @@
-import React from 'react'
-import './Background.css'
-import { ReactComponent as Logo } from './Bharat_Heavy_Electricals_Limited-Logo.wine.svg';
+import React, { useState, useEffect } from "react";
+import "./Background.css";
+import Pagenav from "./Pagenav";
+import Clock from "react-live-clock";
+import { ReactComponent as Logo } from "./Bharat_Heavy_Electricals_Limited-Logo.wine.svg";
 
-    const date = new Date();
-    const showTime = date.getDate() + "/" + (date.getMonth()+1) +"/" + date.getFullYear() + " - "+ date.getHours() 
-        + ':' + date.getMinutes() 
-        + ":" + date.getSeconds();
+const date = new Date();
+const showTime =
+  date.getDate() +
+  "/" +
+  (date.getMonth() + 1) +
+  "/" +
+  date.getFullYear() +
+  " - ";
 
+const Background = () => {
+  return (
+    <body>
+      <Pagenav />
 
-
-        const Background = () => {
-            return (
-           
-        <body>
-      
-       <div class="footer">
+      <div class="footer">
         <div class="logo">
-            <Logo/>
-
+          <Logo />
         </div>
+
         <div class="time">
-{showTime}
+          {showTime}
+          <Clock
+            format={"HH:mm:ss"}
+            ticking={true}
+            timezone={"Asia/Calcutta"}
+          />
         </div>
-       </div>
-     
+      </div>
     </body>
-  
-  )
-}
+  );
+};
 
-export default Background
-
+export default Background;

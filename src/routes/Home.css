@@ -1,88 +1,86 @@
-
-.sonic
-{
-    background-color: white;
-    height: 4rem;
-    width: 20rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+.sonic {
+  background-color: white;
+  height: 4rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.bar-graph
-{
-    background-color: red;
-  color:white;
-}
-
-.freq-spec
-{
-    background-color: green;
-    color:white;
-}
-.trends
-{
-    background-color:  #FFCA37;
-    color:white;
-}
-
-.mimic
-{
-    background-color: olive;
-    color:white;
-}
-.sens-prof
-{
-    background-color: aqua;
-}
-.settings
-{
-    background-color: purple;
-}
-
-.status
-{
-    background-color: indigo;
-}
-.help
-{
-    background-color: fuchsia;
-}
-.btn{
+.bar-graph {
+  background-color: red;
+  color: white;
+  margin-right: 0.5rem;
   border-style: groove;
-   border-color: #5A5A5A;
-    color:white;
-    width: 20rem;
-   margin-left: 0.5rem;
-   margin-right: 0.5rem;
-    height: 8.5rem;
-    font-weight: 600;
-    font-size: 1.1rem;
-    align-items: center;
 }
 
+.freq-spec {
+  background-color: green;
+  color: white;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
+.trends {
+  background-color: #ffca37;
+  color: white;
+  border-style: groove;
+}
 
-/* IconButton
-{
+.mimic {
+  background-color: olive;
+  color: white;
+  border-style: groove;
+}
+.sens-prof {
+  background-color: aqua;
+  border-style: groove;
+}
+.settings {
+  background-color: purple;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
 
-    border-style: groove;
-    border-color: #5A5A5A;
-     color:white;
-     width: 20rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-     height: 8.5rem;
-} */
+.status {
+  background-color: indigo;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
+.help {
+  background-color: fuchsia;
+  border-style: groove;
+}
+.btn {
+  border-style: none;
+  color: rgba(255, 255, 255, 1);
+  width: 20rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 8.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  align-items: center;
+  background-color: transparent;
+}
+
 .flex-container-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5rem;
-    margin-bottom: 0.2rem;
-  }
-  .flex-container-2,.flex-container-3
-  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-margin-top: 0.2rem;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 0.2rem;
+}
+.flex-container-2,
+.flex-container-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.2rem;
+}
+
+img {
+  width: 20rem;
+}
+
+.but {
+  margin-right: 0.1rem;
+  margin-left: 0.1rem;
+}

@@ -1,14 +1,22 @@
-.nav {
+.sens-nav {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
 }
-.but {
+.sens-but {
   margin-right: 0.1rem;
   margin-left: 0.1rem;
   width: 6rem;
-  margin-top: 7rem;
+
   height: 3rem;
   color: black;
   background-color: white;
+}
+
+input {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 3rem;
+
+  height: 2.5rem;
 }

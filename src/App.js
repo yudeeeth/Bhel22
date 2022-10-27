@@ -1,10 +1,10 @@
 import './App.css';
 import Home from './routes/Home.js';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter,Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/barGraph" element={<BarGraph />} />
@@ -17,7 +17,7 @@ function App() {
         <Route path="/sensorStatus" element={<SensorStatus />} />
         <Route path="/help" element={<Help />} /> */}
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 
