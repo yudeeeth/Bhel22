@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './routes/Home.js';
+import Alarm from './routes/Alarm/alarm';
 import MimicScreen from './routes/MimicScreen/MimicScreen';
 import { Routes, Route } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mimicScreen" element={<MimicScreen />} />
+        <Route path="/Alarm" element={<Alarm />} />
         {/* <Route path="/barGraph" element={<BarGraph />} />
         <Route path="/frequencySpectrum" element={<FrequencySpectrum />} />
         <Route path="/realtimeTrend" element={<RealtimeTrend />} />
