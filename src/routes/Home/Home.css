@@ -1,0 +1,117 @@
+.flex-parent-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap:1rem;
+}
+.sonic {
+  background-color: white;
+  height: 4rem;
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+.bar-graph {
+  background-color: red;
+  color: white;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
+
+.freq-spec {
+  background-color: green;
+  color: white;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
+.trends {
+  background-color: #ffca37;
+  color: white;
+  border-style: groove;
+}
+
+.mimic {
+  background-color: olive;
+  color: white;
+  border-style: groove;
+}
+.sens-prof {
+  background-color: aqua;
+  border-style: groove;
+}
+.settings {
+  background-color: purple;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
+
+.status {
+  background-color: indigo;
+  margin-right: 0.5rem;
+  border-style: groove;
+}
+.help {
+  background-color: fuchsia;
+  border-style: groove;
+}
+.home-nav-btn {
+  border-style: none;
+  color: rgba(255, 255, 255, 1);
+  width: 20rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 8.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  align-items: center;
+  background-color: transparent;
+}
+
+.flex-container-1,
+.flex-container-2,
+.flex-container-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.2rem;
+  gap:1rem;
+}
+
+.flex-container-2>*{
+  display: block;
+  box-sizing: border-box;
+}
+
+.flex-container-3{
+  padding-bottom:5rem;
+}
+
+.flex-container-1{
+  padding-top:5rem;
+}
+
+
+img {
+  width: 20rem;
+}
+
+.but {
+  margin-right: 0.1rem;
+  margin-left: 0.1rem;
+}
+
+.sonic{
+  width: 20rem;
+  
+}
+
+.home-card{
+  border:none;
+}
+
+.card{
+  border:1px solid black;
+}
