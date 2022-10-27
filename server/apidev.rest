@@ -5,7 +5,7 @@ POST http://localhost:5000/read
 Content-Type: application/json
 
 {
-    "q1": [0,10],
+    "q1": [0,130],
     "q2": [10,10]
 }
 
@@ -25,4 +25,12 @@ Content-Type: application/json
 {
     "q1": [0,[0,0,0,0,0,0,0,0]],
     "q2": [9,[0,0,0,0,0,0,0,0]]
+}
+
+###
+POST http://localhost:5000/realtime
+Content-Type: application/json
+
+{
+    "timestamp": null
 }

@@ -7,9 +7,8 @@ server._options.holding = Buffer.alloc(400*2);
 netServer.listen(5050);
 
 setInterval(()=>{
-    for(let i=0;i<400*2;i++){
+    for(let i=0;i<400*2;i+=2){
         if(i>40)
        server._options.holding[i] = Math.random()*127;
     }
-    console.log([...server._options.holding].slice(400,410));
 },1000);

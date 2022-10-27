@@ -1,0 +1,92 @@
+.realtime-graph-container{
+    width:800px;
+    height:400px;
+    padding: 2rem;
+    background-color:azure;
+    border-radius: 1rem;
+}
+
+.realtime-main-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.realtime-horizontal-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2rem;
+    gap:2rem;
+}
+
+.left-right-main{
+    display:flex;
+    padding:1rem;
+    justify-content: space-between;
+    gap:7rem;
+}
+
+.duration-main{
+    display:flex;
+    padding:1rem;
+    gap:2rem;
+    justify-content: space-between;
+}
+
+.duration-button{
+    font-size:1.5rem;
+    padding:1rem;
+}
+
+.legend-container{
+    border: 2px solid black;
+    padding:1rem;
+    border-radius: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:200px;
+    gap:1rem;
+    background-color: white;
+}
+
+.legend-title{
+    font-size: 1.5rem;
+    padding:0.5rem;
+    padding-bottom: 1rem;
+}
+
+.legend-element{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+
+.legend-element-value{
+    font-size: 1.5rem;
+}
+
+.legend-element-name{
+    font-size: 1.2rem;
+}
+
+.realtime-title-container{
+    display: flex;
+    padding:2rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+    gap:1rem;
+}
+
+.realtime-title{
+    font-size:1.5rem;
+}
+
+.change-channel-btn{
+    width:fit-content;
+}

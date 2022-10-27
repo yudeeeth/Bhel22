@@ -1,0 +1,41 @@
+.button3d {
+    font-size: 16px;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 15px 0px 0px #1d7f8a,
+        0px 0px 10px 0px rgba(120, 120, 120, 0.4);
+    color: white;
+    background: #239dab;
+    cursor: pointer;
+    transition: all 0.16s;
+    position: relative;
+    top: 0;
+}
+
+.button3d:focus {
+    outline: none;
+}
+
+.button3d:active {
+    box-shadow: 0px 5px 0px 0px #1d7f8a;
+    top: 10px;
+}
+
+.loading-button3d.green {
+    background: #61a74b;
+    box-shadow: 0px 10px 0px 0px #4e883c,
+        0px 0px 10px 0px rgba(120, 120, 120, 0.4);
+    ;
+}
+
+.loading-button3d.green:active {
+    box-shadow: 0px 0px 0px 0px #4e883c;
+}
+
+.button3d-container {
+    padding: 0rem 0.4rem 1.1rem 0.4rem;
+    background: black;
+    border-radius: 10px;
+    box-shadow: -5px -5px 20px white inset, 3px 3px 5px black;
+}
