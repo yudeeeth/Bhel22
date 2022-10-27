@@ -15,13 +15,12 @@ const showTime =
 
 const Background = () => {
   return (
-    <body>
-      <Pagenav />
-
+    <div>
       <div class="footer">
         <div class="logo">
           <Logo />
         </div>
+        <Pagenav />
 
         <div class="time">
           {showTime}
@@ -32,7 +31,7 @@ const Background = () => {
           />
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

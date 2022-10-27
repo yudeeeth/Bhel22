@@ -14,9 +14,9 @@ function Welcome(props) {
 
 const Home = () => {
   return (
-    <body>
+    <div className="flex-parent-container">
       <Sensors />
-
+      <div>
       <div class="flex-container-1">
         <div class="bar-graph">
           <Welcome name="Bar Graph" />
@@ -54,9 +54,10 @@ const Home = () => {
           <Welcome name="Help" />
         </div>
       </div>
-
+      </div>
       <Background />
-    </body>
+     
+    </div>
   );
 };
 export default Home;

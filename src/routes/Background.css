@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  bottom: 0;
+
 }
 .logo {
   margin-left: 2rem;
@@ -24,10 +24,9 @@ body {
 .time {
   color: black;
   margin-right: 1rem;
-
   text-align: right;
   bottom: 2rem;
-  width: 95rem;
+  /* width: 20%; */
   font-weight: 600;
   font-size: 1rem;
 }
