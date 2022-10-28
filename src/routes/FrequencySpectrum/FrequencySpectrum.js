@@ -33,12 +33,13 @@ const FrequencySpectrum = () => {
 
 
         setdB(data.dB[0])
-        setCurrentValue(data.bottom)
-        setCurrentLimits(data.top)
+        setCurrentValue(data.bottom.map(a=>a/100))
+        setCurrentLimits(data.top.map(a=>a/100))
 
         console.log(currentValue)
         console.log(currentLimits)
 
+   
 
       })
     }, 1000)
@@ -60,8 +61,8 @@ const FrequencySpectrum = () => {
       },
       scales: {
         y: {
-          min: 4000,
-          max: 12000,
+          min: 40,
+          max: 120,
           grid: {
             display:false
           }
@@ -70,6 +71,7 @@ const FrequencySpectrum = () => {
           grid:{
             display:false
           },
+          stacked:true
           
         }
       }
@@ -78,18 +80,24 @@ const FrequencySpectrum = () => {
 
     let labels = [];
     for(let i=1; i<=32; i++){
-      labels.push(i*12000/32)
+     
+      let a = i*12000/32
+      if(a%1500==0)
+        labels.push(a)
+      else
+        labels.push('')
     }
+    labels.push('Hz')
     let input = {
       labels: labels,
       datasets: [
           {
-              label: "currentValue",
+              label: "current dB",
               backgroundColor: "green",
               data: currentValue
           },
           {
-              label: "newValue",
+              label: "FFT alarm points",
               backgroundColor: "red",
               data: currentLimits
           }
