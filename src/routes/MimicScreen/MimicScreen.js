@@ -32,6 +32,7 @@ const MimicScreen = () => {
   }, 1000)
   return (
     <div className='mimic-screen-main'>
+      <div className='mimic-screen-title'> Mimic Screen </div>
       <Mimic leak={sensorflags} dbArray={sensorValues} scale={0.8}/>
       <div className='mimic-side-container'>
         <div className='mimic-side mimic-left-side'> Left Side</div>

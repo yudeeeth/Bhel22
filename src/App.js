@@ -2,7 +2,9 @@ import './App.css';
 import Background from './routes/Home/Background';
 import Home from './routes/Home/Home.js';
 import RealtimeTrend from './routes/RealtimeTrend/RealtimeTrend';
+import BarGraphScreen from './routes/BarGraph/BarGraphScreen'
 import MimicScreen from './routes/MimicScreen/MimicScreen';
+import FrequencySpectrum from './routes/FrequencySpectrum/FrequencySpectrum'
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -13,8 +15,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/mimicscreen" element={<MimicScreen />} />
           <Route path="/realtimetrend" element={<RealtimeTrend />} />
-          {/* <Route path="/barGraph" element={<BarGraph />} />
-          <Route path="/frequencySpectrum" element={<FrequencySpectrum />} />
+          <Route path="/bargraph" element={<BarGraphScreen />} />
+          <Route path="/frequencyspectrum" element={<FrequencySpectrum />} />
+          {/* 
           <Route path="/sensorProfile" element={<SensorProfile />} />
           <Route path="/sensorSettings" element={<SensorSettings />} />
           <Route path="/systemSettings" element={<SystemSettings />} />

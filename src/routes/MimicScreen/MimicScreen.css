@@ -6,6 +6,11 @@
     gap:0;
 }
 
+.mimic-screen-title{
+    font-size: 2rem;
+    padding-top: 2rem;
+}
+
 .mimic-side-container{
     display: flex;
     width:700px;

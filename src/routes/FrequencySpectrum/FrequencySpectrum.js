@@ -1,13 +1,8 @@
 import React, {useState} from 'react'
 import "./FrequencySpectrum.css"
 import useInterval from '../../util/UseInterval'
-
 import { Bar } from 'react-chartjs-2';
-
-import * as ChartJs from 'chart.js';
-ChartJs.Chart.register.apply(null, Object.values(ChartJs).filter((chartClass) => (chartClass.id)));
-new ChartJs.Chart()
-
+import Chart from "chart.js/auto";
 
 const FrequencySpectrum = () => {
 
@@ -24,8 +19,7 @@ const FrequencySpectrum = () => {
         body: JSON.stringify({
           top: [14, 32],
           bottom: [146, 32],
-          dB:[11,1]
-
+          dB:[101,1]
         }) 
       })
       .then(res => res.json())
@@ -33,11 +27,11 @@ const FrequencySpectrum = () => {
 
 
         setdB(data.dB[0])
-        setCurrentValue(data.bottom.map(a=>a/100))
-        setCurrentLimits(data.top.map(a=>a/100))
+        setCurrentValue(data.bottom.map(a=>a%120))
+        setCurrentLimits(data.top.map(a=>a%120))
 
-        console.log(currentValue)
-        console.log(currentLimits)
+        // console.log(currentValue)
+        // console.log(currentLimits)
 
    
 
@@ -52,28 +46,11 @@ const FrequencySpectrum = () => {
           borderWidth: 2,
         },
       },
-      responsive: true,
       plugins: {
         title: {
           display: false,
           text: 'Chart.js Horizontal Bar Chart',
         },
-      },
-      scales: {
-        y: {
-          min: 40,
-          max: 120,
-          grid: {
-            display:false
-          }
-        },
-        x: {
-          grid:{
-            display:false
-          },
-          stacked:true
-          
-        }
       }
     };
 
@@ -103,10 +80,6 @@ const FrequencySpectrum = () => {
           }
       ]
   };
-
-
-    
-
 
   const currentSensor=2;
   return (

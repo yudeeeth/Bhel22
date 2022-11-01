@@ -4,6 +4,7 @@
     /* align-items: center; */
     position: relative;
     margin:4em;
+    margin-left: 15rem;
     /* scale size of mmimic display based on 1250*scaling, 700*scale */
     width: 1000px;
     height: 560px;

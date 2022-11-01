@@ -1,0 +1,10 @@
+.bargraph-title{
+    font-size: 2rem;
+    padding:1rem;
+}
+
+.bargraph-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
