@@ -1,5 +1,5 @@
 import './App.css';
-import Background from './routes/Home/Background';
+import Background from './routes/Background/Background';
 import Home from './routes/Home/Home.js';
 import RealtimeTrend from './routes/RealtimeTrend/RealtimeTrend';
 import BarGraphScreen from './routes/BarGraph/BarGraphScreen'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Background.css";
-import Pagenav from "./Pagenav";
+import Pagenav from "../Pagenav/Pagenav";
 import Clock from "react-live-clock";
 import { ReactComponent as Logo } from "./Bharat_Heavy_Electricals_Limited-Logo.wine.svg";
 
@@ -16,7 +16,7 @@ const Background = (props) => {
           <Logo />
         </div>
 
-        {/* <Pagenav /> */}
+        <Pagenav />
         <div className="bg-time">
           {showTime}
           <Clock
