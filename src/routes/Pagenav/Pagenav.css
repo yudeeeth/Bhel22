@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+.pagenav-prev-but,
+.pagenav-next-but {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  height: 3rem;
+  width: 4vw;
+  height: 3vw;
+  padding-bottom: 1rem;
+}
+
+.pagenav-home-but {
+  width: 7vw;
+  height: 6vw;
+}

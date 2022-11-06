@@ -1,0 +1,75 @@
+.sensor-status-parent-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sensor-status-rightdiv {
+  max-width: 80vw;
+  margin-right: 5rem;
+  display: flex;
+  flex-direction: row;
+}
+.sensor-status-leftdiv {
+  margin-top: 5rem;
+  width: 20rem;
+  text-align: center;
+  direction: flex;
+  flex-direction: column;
+}
+
+.sensor-status-channeldiv {
+  text-align: start;
+  margin-right: 3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 37vw;
+}
+
+.sensor-status-color-cols {
+  display: flex;
+  flex-direction: row;
+}
+
+.colors {
+  height: 37vw;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  margin-right: 0.4rem;
+  margin-left: 0.4rem;
+  width: 2.3vw;
+  opacity: 0.7;
+  border-style: groove;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: center;
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.sensor-status-slider {
+  -webkit-appearance: none;
+  appearance: slider-vertical;
+  width: 4vw;
+  height: 9vw;
+  background: black;
+  outline: 2px;
+  -webkit-transition: 0.2s; 
+  transition: opacity 0.2s;
+}
+
+.slide-text {
+  margin-bottom: 2rem;
+}
+
+.sensor-status-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2vw;
+  height: 2vw;
+  background: white;
+  cursor: pointer;
+}
