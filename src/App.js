@@ -18,7 +18,7 @@ function App() {
           <Route path="/realtimetrend" element={<RealtimeTrend />} />
           <Route path="/bargraph" element={<BarGraphScreen />} />
           <Route path="/frequencyspectrum" element={<FrequencySpectrum />} />
-          <Route path="/sensorstatus" element={<SensorStatus />} />
+          <Route path="/statussummary" element={<SensorStatus />} />
           {/* 
           <Route path="/sensorProfile" element={<SensorProfile />} />
           <Route path="/sensorSettings" element={<SensorSettings />} />
