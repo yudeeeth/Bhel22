@@ -261,7 +261,7 @@ const SystemSettings = () => {
                 style={{
                   width: "10rem",
                   height: "2rem",
-                  backgroundColor: "##0cc9b0",
+                  backgroundColor: "#0cc9b0",
                   fontWeight: "bold",
                   border: "none",
                   boxShadow: "0px 5px 5px 3px",
@@ -275,7 +275,7 @@ const SystemSettings = () => {
                 style={{
                   width: "10rem",
                   height: "2rem",
-                  backgroundColor: "##0ce8ad",
+                  backgroundColor: "#0ce8ad",
                   fontWeight: "bold",
                   border: "none",
                   boxShadow: "0px 5px 5px 3px",
