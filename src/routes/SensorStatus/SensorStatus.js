@@ -1,47 +1,46 @@
 import React from "react";
 import "./SensorStatus.css";
 import useInterval from "../../util/UseInterval";
-const bitFlagColor =(shift)=>{
-  //do the logic
-  // return `{{backgroundColor:${}}}`
-}
+import ChannelNumbers from "./Components/ChannelNumbers";
+
 const BitFlags = (props) => {
-  let colNum = props.columnNumber
-  console.log('bitflags',props.statusArray);
+  let colNum = props.columnNumber;
+  console.log("bitflags", props.statusArray);
   const bitShiftNumber = [
-    { id: 1, shift:3},
-    { id: 2, shift:12 },
-    { id: 3, shift:11 },
-    { id: 4, shift:14 },
-    { id: 5, shift:15},
-    { id: 6, shift:10}, //random
-    { id: 7, shift: 5},
-    { id: 8, shift: 6},
-    { id: 9, shift:4},
-    { id: 10, shift:7},
-    { id: 11, shift:1},
-    { id: 12, shift:10}, //random
-    { id: 13, shift:10}, //random
+    { id: 1, shift: 3 },
+    { id: 2, shift: 12 },
+    { id: 3, shift: 11 },
+    { id: 4, shift: 14 },
+    { id: 5, shift: 15 },
+    { id: 6, shift: 2 }, //random
+    { id: 7, shift: 5 },
+    { id: 8, shift: 6 },
+    { id: 9, shift: 4 },
+    { id: 10, shift: 7 },
+    { id: 11, shift: 1 },
+    { id: 12, shift: 2 }, //random
+    { id: 13, shift: 2 }, //random
   ];
   const bitflags = [];
   for (let i = 1; i <= 20; i++) bitflags.push(i);
 
   return (
-   
-
     <div className="sensor-status-bitflag-col">
-      {bitflags.map((item) => { 
-          let color = props.statusArray[item]>>bitShiftNumber.filter(e=>e.id==colNum)[0].shift;
-          color = color & 1;
-          console.log(color);
-          let bg = color==1?"red":"grey";
+      {bitflags.map((item) => {
+        let color =
+          props.statusArray[item] >>
+          bitShiftNumber.filter((e) => e.id == colNum)[0].shift;
+        color = color & 1;
+        console.log(color);
+        let bg = color == 1 ? "red" : "grey";
         return (
-        <div key={item} className="sensor-status-bitflag-box" 
-        style={{backgroundColor:{bg}}}>
-
-
-        </div>
-      )})}
+          <div
+            key={item}
+            className="sensor-status-bitflag-box"
+            style={{ backgroundColor: bg   }}                                                                                                 
+          ></div>
+        );
+      })}
     </div>
   );
 };
@@ -62,7 +61,7 @@ const Colors = (props) => {
     { id: 12, color: "#9fd9a2", text: "Sensor Healthy" },
     { id: 13, color: "#a7caa9", text: "Self test in Progress" },
   ];
-  
+
   return (
     <div className="sensor-status-color-cols">
       {colColour.map((item) => (
@@ -72,50 +71,33 @@ const Colors = (props) => {
           style={{ backgroundColor: item.color }}
           title={item.text}
         >
-          <BitFlags columnNumber={item.id} statusArray={props.statusArray}/>
+          <BitFlags columnNumber={item.id} statusArray={props.statusArray} />
         </div>
       ))}
     </div>
   );
 };
 
-const ChannelNumbers = (props) => {
-  const bitflags = [];
-  for (let i = 1; i <= 20; i++) bitflags.push(i);
 
-  return (
-    <div className="sensor-status-channels">
-      {bitflags.map((item) => (
-        <div className="sensor-status-channel-numbers" key={item}>
-          CH#{item}
-          <span className="channel-line" key={item}/> 
-        </div>
-      ))}
-    </div>
-  );
-};
 
 const SensorStatus = () => {
-
-  const [statusBits,setStatusBits] = React.useState([]);
-  useInterval(()=>{
-    fetch('/read',{
-      method: 'POST',
+  const [statusBits, setStatusBits] = React.useState([]);
+  useInterval(() => {
+    fetch("/read", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        q1: [260, 40]
-      }) 
+        q1: [260, 40],
+      }),
     })
-    .then(res => res.json())
-    .then(data => {
-      setStatusBits(data.q1);
-      console.log(data.q1);
-    })
-
-  },1000)
-
+      .then((res) => res.json())
+      .then((data) => {
+        setStatusBits(data.q1);
+        console.log(data.q1);
+      });
+  }, 1000);
 
   return (
     <div className="sensor-status-parent-flex">
