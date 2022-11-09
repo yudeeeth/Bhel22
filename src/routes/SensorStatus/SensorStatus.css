@@ -65,7 +65,7 @@ ul {
   list-style-type: none;
 }
 
-.sensor-status-slider {
+/* .sensor-status-slider {
   -webkit-appearance: none;
   appearance: slider-vertical;
   width: 4vw;
@@ -74,7 +74,7 @@ ul {
   outline: 2px;
   -webkit-transition: 0.2s; 
   transition: opacity 0.2s;
-}
+} */
 
 .slide-text {
   margin-bottom: 2rem;
