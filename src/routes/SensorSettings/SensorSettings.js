@@ -1,7 +1,7 @@
 import "./SensorSettings.css";
 import { useEffect, useState } from "react";
 
-import useInterval from "../../util/UseInterval";
+import FreqInput from "./SensorSettings-FreqInput.js"
 
 import AllLogs from "./buttons/AllLogs.png";
 import CalLog from "./buttons/CalLog.png";
@@ -97,8 +97,6 @@ const SensorSettings = () => {
         }
       });
   };
-
-  useEffect(() => {}, [sensorInput]);
 
   useEffect(() => {
     fetch("/write", {
@@ -300,24 +298,5 @@ const SensorSettings = () => {
   );
 };
 
-const FreqInput = (props) => (
-  <div key={props.i}>
-    <label
-      className="sensor-settings-threshold-label"
-      style={props.input > 120 || props.input < 60 ? { color: "red" } : {}}
-    >
-      Freq. band 0{props.i + 1} :
-    </label>
-    <input
-      className="sensor-settings-threshold-input"
-      onChange={(res) => {
-        props.frequencyInput(props.i, res.target.value);
-      }}
-      type="number"
-      value={props.input}
-    ></input>
-    <br />
-  </div>
-);
 
 export default SensorSettings;
