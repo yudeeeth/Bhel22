@@ -6,6 +6,7 @@ import BarGraphScreen from './routes/BarGraph/BarGraphScreen'
 import MimicScreen from './routes/MimicScreen/MimicScreen';
 import FrequencySpectrum from './routes/FrequencySpectrum/FrequencySpectrum'
 import SensorStatus from './routes/SensorStatus/SensorStatus'
+import SensorSettings from './routes/SensorSettings/SensorSettings';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,10 +20,10 @@ function App() {
           <Route path="/bargraph" element={<BarGraphScreen />} />
           <Route path="/frequencyspectrum" element={<FrequencySpectrum />} />
           <Route path="/statussummary" element={<SensorStatus />} />
-          {/* 
-          <Route path="/sensorProfile" element={<SensorProfile />} />
+{/*           
+          <Route path="/sensorProfile" element={<SensorProfile />} /> */}
           <Route path="/sensorSettings" element={<SensorSettings />} />
-          <Route path="/systemSettings" element={<SystemSettings />} />
+          {/* <Route path="/systemSettings" element={<SystemSettings />} />
           <Route path="/sensorStatus" element={<SensorStatus />} />
         <Route path="/help" element={<Help />} /> */}
         </Routes>

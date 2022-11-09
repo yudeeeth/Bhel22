@@ -1,0 +1,91 @@
+.sensor-settings-flex {
+    display: flex;
+    justify-content: center;
+    gap:2%;
+}
+
+.sensor-settings-sensor-input {
+    display: flex;
+    gap:10%;
+}
+
+.sensor-settings-col {
+  width:100%;
+  background-color: rgba(253, 255, 240,0.2);
+  
+  border: 0.5px black solid;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-left: 80px;
+ 
+}
+
+
+.sensor-settings-right, .sensor-settings-left {
+    width:35%;
+    margin-top: 100px;
+  }
+
+
+
+
+.sensor-settings-threshold-input {
+    width:45px;
+    margin-top: 15px;
+    margin-left: 40px;
+
+}
+.sensor-settings-threshold-label {
+    font-size: small;
+}
+
+.sensor-settings-alarm-title , .sensor-settings-nominal-title , .sensor-settings-reset-title , .sensor-settings-threshold-title{
+    font-size: x-large;
+    font-weight: 700;
+    margin-top:-10px;
+    color:rgb(218, 16, 16);
+    margin-bottom:0px;
+    
+}
+
+.sensor-settings-threshold-title {
+    color:rgb(28, 28, 136);
+    font-size: large;
+}
+
+.sensor-settings-alarm-input {
+    margin-top: 15px;
+}
+
+.sensor-settings-alarm, .sensor-settings-nominal {
+    display: flex;
+    gap:20%;
+}
+
+.sensor-settings-nominal {
+    gap:26%;
+}
+
+.sensor-settings-nominal-title {
+    color:rgb(137, 36, 137);
+}
+
+.sensor-settings-reset-title {
+    color:brown;
+}
+
+.sensor-settings-reset-button {
+    width:20%;
+    margin-right:10%;
+    margin-top:10px;
+}
+
+.sensor-settings-main-button1 {
+    width:46%;
+    margin-top:50px
+}
+.sensor-settings-main-button2 {
+    width:50%;
+    position: relative;
+    left:80px;
+}
