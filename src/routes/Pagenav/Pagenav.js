@@ -15,7 +15,7 @@ let list = {
   4: "realtimetrend",
   5: "mimicscreen",
   6: "sensorProfile",
-  7: "sensorSettings",
+  7: "systemSettings",
   8: "statussummary",
   9: "help",
 };
@@ -48,17 +48,17 @@ const Pagenav = () => {
   };
 
   return (
-    <div class="nav">
-      <img onClick={() => prevpage()} class="pagenav-prev-but"
+    <div className="nav">
+      <img onClick={() => prevpage()} className="pagenav-prev-but"
       src={require("./Components/leftarrow.png")}
         />
      
-      <img onClick={() => homepage()} class="pagenav-home-but"
+      <img onClick={() => homepage()} className="pagenav-home-but"
       src={require("./Components/homelogo.png")}
       
       />
         
-      <img onClick={() => nextpage()} class="pagenav-next-but"
+      <img onClick={() => nextpage()} className="pagenav-next-but"
        src={require("./Components/rightarrow.png")}
       
       />

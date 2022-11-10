@@ -1,4 +1,5 @@
 import React from "react";
+import ChangeSensor from "../Change-sensor/Change-sensor";
 import "./SystemSettings.css";
 
 const SensorInput = () => {
@@ -55,6 +56,7 @@ const SensorInput = () => {
 const SystemSettings = () => {
   return (
     <div className="system-settings-container">
+      {/* <ChangeSensor /> */}
       <div className="system-settings-title">System Settings</div>
       <div className="system-settings-containerbottom">
         <div className="system-settings-left">
