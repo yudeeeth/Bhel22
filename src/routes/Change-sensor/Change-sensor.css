@@ -1,7 +1,10 @@
 .sens-nav {
   display: flex;
-  justify-content: right;
+  justify-content: end;
   align-items: center;
+  width:100%;
+  padding:1rem;
+  padding-right:2rem;
 }
 .sens-but {
   margin-right: 0.1rem;

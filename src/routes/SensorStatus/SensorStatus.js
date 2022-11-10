@@ -38,10 +38,10 @@ const SensorStatus = () => {
   return (
     <div className="sensor-status-parent-flex">
       <div className="sensor-status-leftdiv">
-        <div className="slide-text">Slide to move cursor</div>
+        <div className="slide-text">Move channels</div>
         <div className="sensor-status-slidecontainer">
           <button className="sensor-status-slider" onClick={updateCount}>
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
               {channelPage % 2 == 0 ? "arrow_upward" : "arrow_downward"}
             </span>
           </button>

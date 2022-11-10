@@ -3,12 +3,13 @@ import "./Background.css";
 import Pagenav from "../Pagenav/Pagenav";
 import Clock from "react-live-clock";
 import { ReactComponent as Logo } from "./Bharat_Heavy_Electricals_Limited-Logo.wine.svg";
-
+import ChangeSensor from "../Change-sensor/Change-sensor";
 
 const date = new Date();
 const showTime = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " - ";
 
 const Background = (props) => {
+
   return (
     <div className="background-container">
       {props.children}
@@ -16,7 +17,6 @@ const Background = (props) => {
         <div className="logo">
           <Logo />
         </div>
-
         <Pagenav />
         <div className="bg-time">
           {showTime}
