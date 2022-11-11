@@ -46,7 +46,7 @@ const Home = () => {
 
 			<div className="flex-container-3">
 				<div className="card settings">
-					<Welcome name="Settings" />
+					<Welcome name="Sensor Settings" />
 				</div>
 				<div className="card status">
 					<Welcome name="Status Summary" />

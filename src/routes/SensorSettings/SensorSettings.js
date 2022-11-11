@@ -11,6 +11,7 @@ import LeakLog from "./buttons/LeakLog.png";
 import PowerLog from "./buttons/PowerLog.png";
 import PurgeLog from "./buttons/PurgeLog.png";
 import SaveSettings from "./buttons/SaveSettings.png";
+import ChangeSensor from "../Change-sensor/Change-sensor";
 
 const SensorSettings = () => {
   const [sensorInput, setSensorInput] = useState([]);
@@ -137,6 +138,8 @@ const SensorSettings = () => {
   }, [upperLimit, lowerLimit]);
 
   return (
+    <>
+    <ChangeSensor />
     <div className="sensor-settings-flex">
       <div className="sensor-settings-left sensor-settings-col">
         <p className="sensor-settings-threshold-title ">
@@ -148,35 +151,35 @@ const SensorSettings = () => {
               (input, i) =>
                 i + 1 < 10 && (
                   <FreqInput
-                    i={i}
-                    input={sensorInput[i]}
-                    frequencyInput={frequencyInput}
+                  i={i}
+                  input={sensorInput[i]}
+                  frequencyInput={frequencyInput}
                   />
-                )
-            )}
+                  )
+                  )}
             {sensorInput.map(
               (input, i) =>
-                i + 1 >= 10 &&
-                i + 1 <= 16 && (
-                  <FreqInput
-                    i={i}
-                    input={sensorInput[i]}
-                    frequencyInput={frequencyInput}
-                  />
+              i + 1 >= 10 &&
+              i + 1 <= 16 && (
+                <FreqInput
+                i={i}
+                input={sensorInput[i]}
+                frequencyInput={frequencyInput}
+                />
                 )
-            )}
+                )}
           </div>
           <div>
             {sensorInput.map(
               (input, i) =>
-                i + 1 > 16 && (
-                  <FreqInput
-                    i={i}
-                    input={sensorInput[i]}
-                    frequencyInput={frequencyInput}
-                  />
+              i + 1 > 16 && (
+                <FreqInput
+                i={i}
+                input={sensorInput[i]}
+                frequencyInput={frequencyInput}
+                />
                 )
-            )}
+                )}
           </div>
         </div>
       </div>
@@ -189,16 +192,16 @@ const SensorSettings = () => {
                 style={
                   alarmThresh < 60 || alarmThresh > 120 ? { color: "red" } : {}
                 }
-              >
+                >
                 Alarm Threshold (dB){" "}
               </p>
               <p
                 style={
                   delaySetpoint < 0 || delaySetpoint > 30
-                    ? { color: "red" }
-                    : {}
+                  ? { color: "red" }
+                  : {}
                 }
-              >
+                >
                 Delay Setpoint (s){" "}
               </p>
             </div>
@@ -210,7 +213,7 @@ const SensorSettings = () => {
                   setAlarmThresh(inp.target.value);
                 }}
                 type="number"
-              />
+                />
               <br />
               <input
                 className="sensor-settings-alarm-input"
@@ -219,7 +222,7 @@ const SensorSettings = () => {
                   setDelaySetpoint(inp.target.value);
                 }}
                 type="number"
-              />
+                />
             </div>
           </div>
         </div>
@@ -231,14 +234,14 @@ const SensorSettings = () => {
                 style={
                   lowerLimit < 40 || lowerLimit > 60 ? { color: "red" } : {}
                 }
-              >
+                >
                 Lower Limit (dB){" "}
               </p>
               <p
                 style={
                   upperLimit < 100 || upperLimit > 120 ? { color: "red" } : {}
                 }
-              >
+                >
                 Upper Limit (dB){" "}
               </p>
             </div>
@@ -250,7 +253,7 @@ const SensorSettings = () => {
                   setLowerLimit(inp.target.value);
                 }}
                 type="number"
-              />
+                />
               <br />
               <input
                 className="sensor-settings-alarm-input"
@@ -259,7 +262,7 @@ const SensorSettings = () => {
                   setUpperLimit(inp.target.value);
                 }}
                 type="number"
-              />
+                />
             </div>
           </div>
         </div>
@@ -267,15 +270,15 @@ const SensorSettings = () => {
           <p className="sensor-settings-reset-title ">Reset:</p>
           {buttonList.map((button, i) => (
             <img
-              src={button.btn}
-              className="sensor-settings-reset-button"
-              onClick={() => {
-                //454 gives error
-                writeBack(0, button.setValue);
-              }}
-              key={i}
+            src={button.btn}
+            className="sensor-settings-reset-button"
+            onClick={() => {
+              //454 gives error
+              writeBack(0, button.setValue);
+            }}
+            key={i}
             />
-          ))}
+            ))}
         </div>
         <div>
           <img
@@ -284,17 +287,18 @@ const SensorSettings = () => {
             onClick={() => {
               writeBack(179, 1);
             }}
-          />
+            />
           <img
             src={CopySettings}
             className="sensor-settings-main-button2"
             onClick={() => {
               writeBack(178, 1);
             }}
-          />
+            />
         </div>
       </div>
     </div>
+    </>
   );
 };
 

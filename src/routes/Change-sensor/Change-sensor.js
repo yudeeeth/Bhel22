@@ -1,8 +1,8 @@
 import React from 'react'
 import './Change-sensor.css'
 
-const ChangeSensor = () => {
-    const [regValue, setRegValue] = React.useState(1);
+const ChangeSensor = (props) => {
+    const [regValue, setRegValue] = React.useState(props.start ?? 1);
     const inpref = React.useRef(null);
 
     const changeSensor = (value) => {
@@ -12,32 +12,31 @@ const ChangeSensor = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                q1: [9, value],
+                q1: [9, [value]],
             })
         })
     }
 
     const changeVal = (e) =>{
-        if(inpref.value>0 && inpref.value<=40)
+        onPressEnter({key:"Enter"})
         if(e=="+"){
-            if(regValue==40) setRegValue(1);
+            if(regValue>=40) setRegValue(1);
             else setRegValue(e=>parseInt(e)+1);
         }
         else{
-            if(regValue==1) setRegValue(40);
+            if(regValue<=1) setRegValue(40);
             else setRegValue(e=>parseInt(e)-1);
         }
     }
 
     const onPressEnter = (e) => {
         if(e.key == 'Enter'){
-            if(e.target.value > 0 && e.target.value <= 40)
+            if(inpref.current.value > 0 && inpref.current.value <= 40)
                 {
-                    changeSensor(e.target.value);
-                    
+                    changeSensor(inpref.current.value);
                 }
             else{
-                e.target.value = 1;
+                inpref.current.value = 1;
                 changeSensor(1);
             }
         }

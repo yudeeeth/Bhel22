@@ -27,7 +27,7 @@ const SensorDot = (props) => {
                     <br /> {props.location}
                 </div>
                 <div className='sensor-dots-DB' >
-                    {props.db}db
+                    {props.db}dB
                 </div>
             </div>
         </div>

@@ -69,3 +69,10 @@
     margin:'1rem 0rem 0rem 0rem';
     height:7vw;
 }
+
+.bitflag-ndicator{
+    width:20px;
+    height:20px;
+    margin: 0.5rem;
+    display:inline-block;
+}

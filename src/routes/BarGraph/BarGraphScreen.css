@@ -8,3 +8,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+.bar-footer{
+    margin-top:10rem;
+}

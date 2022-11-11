@@ -3,10 +3,13 @@ import "./FrequencySpectrum.css"
 import useInterval from '../../util/UseInterval'
 import { Bar } from 'react-chartjs-2';
 import Chart from "chart.js/auto";
+import ChangeSensor from '../Change-sensor/Change-sensor';
+import { getParseTreeNode } from 'typescript';
 
 const FrequencySpectrum = () => {
 
     const [dB, setdB] = useState(0)
+    const [currentChannel,setCurrentChannel] = useState(1);
     const [currentValue , setCurrentValue] = useState([])
     const [currentLimits, setCurrentLimits ] = useState([])
 
@@ -19,21 +22,17 @@ const FrequencySpectrum = () => {
         body: JSON.stringify({
           top: [14, 32],
           bottom: [146, 32],
-          dB:[101,1]
+          dB:[101,1],
+          channel:[9,1]
         }) 
       })
       .then(res => res.json())
       .then(data => {
 
-
+        setCurrentChannel(data.channel[0])
         setdB(data.dB[0])
         setCurrentValue(data.bottom.map(a=>a%120))
-        setCurrentLimits(data.top.map(a=>a%120))
-
-        // console.log(currentValue)
-        // console.log(currentLimits)
-
-   
+        setCurrentLimits(data.top.map(a=>120-(a%20)))
 
       })
     }, 1000)
@@ -46,6 +45,23 @@ const FrequencySpectrum = () => {
           borderWidth: 2,
         },
       },
+      scales: {
+        y: {
+          min: 0,
+          max: 120,
+          grid: {
+            display:false
+          }
+        },
+        x: {
+          grid:{
+            display:false
+          },
+          stacked:true
+          
+        }
+      },
+      maintainAspectRatio: false,
       plugins: {
         title: {
           display: false,
@@ -70,21 +86,28 @@ const FrequencySpectrum = () => {
       datasets: [
           {
               label: "current dB",
-              backgroundColor: "green",
+              backgroundColor: currentValue.map((val,ind)=>{if(val<currentLimits[ind]) return "green"; else return "red"}),
               data: currentValue
           },
           {
               label: "FFT alarm points",
-              backgroundColor: "red",
+              backgroundColor: "gray",
               data: currentLimits
+          },
+          {
+            label: "FFT danger",
+            backgroundColor: "red",
+            data: currentLimits.map(_=>140)
           }
       ]
   };
-
-  const currentSensor=2;
   return (
     <div className='FrequencySpectrum'> 
-      <p className='Title'>Frequency Spectrum of the channel # {currentSensor}</p> 
+    <div className='freq-title-container'>
+      <p className='Title'>Frequency Spectrum of the channel # {currentChannel + 1}</p> 
+    <ChangeSensor start={currentChannel + 1}/>
+
+    </div>
       <p className='dbValue'>Current dB value : {dB} dB </p> 
 
       <p className='graphHeader'>FFT Set Points in DB</p>

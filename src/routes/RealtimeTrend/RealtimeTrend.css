@@ -1,7 +1,6 @@
 .realtime-graph-container{
-    width:800px;
-    height:400px;
-    padding: 2rem;
+    width:1200px;
+    height:500px;
     background-color:azure;
     border-radius: 1rem;
 }
@@ -18,7 +17,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:2rem;
     gap:2rem;
 }
 

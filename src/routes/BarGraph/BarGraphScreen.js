@@ -74,8 +74,7 @@ const BarGraphScreen = () => {
             justifyContent: "center",
           }}
         >
-          <div>
-            <div style={{ width: "900px", height: "700px", padding: "4rem 4rem 1rem 4rem" }}>
+            <div style={{ width: "1300px", height: "500px"}}>
               <Bar
                 style={{ backgroundColor: "#d2c1ad" }}
                 data={{
@@ -99,6 +98,9 @@ const BarGraphScreen = () => {
                 }}
               />
             </div>
+          <div className="bar-footer">
+            <button className="btn-metal" onClick={()=>move(0)}>left</button>
+            <button className="btn-metal" onClick={()=>move(1)}>right</button>
           </div>
           {/* <div id="footer" style={{ flexFlow: "row wrap" }}>
             <img

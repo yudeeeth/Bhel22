@@ -1,8 +1,9 @@
 import React from "react";
+import useInterval from "../../util/UseInterval";
 import ChangeSensor from "../Change-sensor/Change-sensor";
 import "./SystemSettings.css";
 
-const SensorInput = () => {
+const SensorInput = ({requiredObj}) => {
   const sInput = [];
   for (let j = 0; j < 5; j++) {
     let sIntermediate = [];
@@ -26,6 +27,7 @@ const SensorInput = () => {
               backgroundColor: "#ffffff",
               margin: "0rem 2rem 0rem 2rem",
             }}
+            value={requiredObj && requiredObj.sensorValues[i+j*4]}
           />
         </div>
       );
@@ -54,9 +56,31 @@ const SensorInput = () => {
 };
 
 const SystemSettings = () => {
+  const [requiredObj,setRequiredObj] = React.useState(null);
+  const colors = ['black','red'];
+  useInterval(()=>{
+    fetch('/read',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        digOut: [351, 1],
+        digIn: [350, 1],
+        maintain:[333,3],
+        comm:[336,2],
+        numOfSensor:[332,1],
+        sensorValues:[351,40]
+      }) 
+    })
+    .then(res => res.json())
+    .then(data => {
+      setRequiredObj(data);
+    })
+  },1000)
+
   return (
     <div className="system-settings-container">
-      {/* <ChangeSensor /> */}
       <div className="system-settings-title">System Settings</div>
       <div className="system-settings-containerbottom">
         <div className="system-settings-left">
@@ -73,15 +97,15 @@ const SystemSettings = () => {
             </div>
             <div style={{ flexdirection: "row", padding: "0.5rem" }}>
               Calibration Interval (days)
-              <input className="system-settings-input" />
+              <input className="system-settings-input" value={requiredObj && requiredObj.maintain[2]} />
             </div>
             <div style={{ flexdirection: "row", padding: "0.5rem" }}>
               Purge Interval (days)
-              <input className="system-settings-input" />
+              <input className="system-settings-input" value={requiredObj && requiredObj.maintain[1]}/>
             </div>
             <div style={{ flexdirection: "row", padding: "0.5rem" }}>
               Purge Duration (sec)
-              <input className="system-settings-input" />
+              <input className="system-settings-input" value={requiredObj && requiredObj.maintain[0]}/>
             </div>
           </div>
 
@@ -96,32 +120,20 @@ const SystemSettings = () => {
             >
               Digital Outputs :
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
-              Alarm
+            <div style={{ display:"flex",flexdirection: "row", alignItems:"center",padding: "0.5rem" }}>
+              <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digOut[0]>>0&1? 0:1]}`}}></div>
+              <div>Alarm</div>
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{ display:"flex",flexdirection: "row", alignItems:"center",padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digOut[0]>>1&1? 0:1]}`}}></div>
               Purging
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{ display:"flex",flexdirection: "row", alignItems:"center",padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digOut[0]>>2&1? 0:1]}`}}></div>
               Error
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{ display:"flex",flexdirection: "row",alignItems:"center", padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digOut[0]>>3&1? 0:1]}`}}></div>
               Spare
             </div>
           </div>
@@ -137,32 +149,20 @@ const SystemSettings = () => {
             >
               Digital Inputs :
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{ display:"flex",flexdirection: "row", alignItems:"center", padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digIn[0]>>0&1? 0:1]}`}}></div>
               Alarm Inhibit
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{display:"flex", flexdirection: "row",alignItems:"center", padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digIn[0]>>1&1? 0:1]}`}}></div>
               Auto Purging ENABLED
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{ display:"flex",flexdirection: "row", alignItems:"center",padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digIn[0]>>2&1? 0:1]}`}}></div>
               Power Status 1
             </div>
-            <div style={{ flexdirection: "row", padding: "0.5rem" }}>
-              <img
-                className="system-settings-button"
-                src={require("./Components/button.png")}
-              />
+            <div style={{ display:"flex",flexdirection: "row", alignItems:"center",padding: "0.5rem" }}>
+            <div className="bitflag-ndicator" style={{backgroundColor:`${colors[requiredObj && requiredObj.digIn[0]>>3&1? 0:1]}`}}></div>
               Power Status 2
             </div>
           </div>
@@ -195,7 +195,7 @@ const SystemSettings = () => {
                 >
                   No. of Sensors :
                 </div>
-                <div style={{ fontWeight: "bold", color: "#0eb562" }}>0</div>
+                <div style={{ fontWeight: "bold", color: "#0eb562" }}>{requiredObj && requiredObj.numOfSensor}</div>
               </div>
 
               <div
@@ -227,7 +227,7 @@ const SystemSettings = () => {
                 margin: "1rem 1rem 2rem 1rem",
               }}
             >
-              <SensorInput />
+              <SensorInput requiredObj={requiredObj}/>
             </div>
           </div>
           <div
@@ -250,11 +250,11 @@ const SystemSettings = () => {
               </div>
               <div style={{ flexDirection: "row", padding: "0.5rem" }}>
                 NFC timeout (sec)
-                <input className="system-settings-input" />
+                <input className="system-settings-input" value={requiredObj && requiredObj.comm[0]}/>
               </div>
               <div style={{ flexDirection: "row", padding: "0.5rem" }}>
                 RS485 timeout (sec)
-                <input className="system-settings-input" />
+                <input className="system-settings-input" value={requiredObj && requiredObj.comm[1]}/>
               </div>
             </div>
 

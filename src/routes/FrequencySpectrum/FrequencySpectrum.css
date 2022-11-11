@@ -21,7 +21,12 @@ align-items: center;
 }
 
 #frequencyGraph {
-    height: 700px;
-    width:1000px;
+    height:500px;
+    width:100%;
     margin:auto;
+}
+
+.freq-title-container{
+    display: flex;
+    justify-content: center;
 }

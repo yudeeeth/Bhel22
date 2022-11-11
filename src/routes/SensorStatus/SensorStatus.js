@@ -3,6 +3,7 @@ import "./SensorStatus.css";
 import useInterval from "../../util/UseInterval";
 import ChannelNumbers from "./Components/ChannelNumbers";
 import ColorColumns from "./Components/ColorColumns";
+import ChangeSensor from "../Change-sensor/Change-sensor";
 
 const SensorStatus = () => {
   const [statusBits, setStatusBits] = React.useState([]);
