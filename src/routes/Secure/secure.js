@@ -12,7 +12,6 @@ const Secure = (props) => {
             setIsAuth(true);
         }
     }
-
     return (
         <>
             {isAuth && props.children}

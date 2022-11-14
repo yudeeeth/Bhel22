@@ -38,4 +38,5 @@
     background: black;
     border-radius: 10px;
     box-shadow: -5px -5px 20px white inset, 3px 3px 5px black;
+    width:fit-content;
 }

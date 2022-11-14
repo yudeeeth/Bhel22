@@ -11,6 +11,7 @@ import LeakLog from "./buttons/LeakLog.png";
 import PowerLog from "./buttons/PowerLog.png";
 import PurgeLog from "./buttons/PurgeLog.png";
 import SaveSettings from "./buttons/SaveSettings.png";
+import Button3d from './../../util/Button3d'
 import ChangeSensor from "../Change-sensor/Change-sensor";
 
 const SensorSettings = () => {
@@ -68,6 +69,7 @@ const SensorSettings = () => {
       .then((data) => {
         if (data.q1 == false) {
           console.log("error write");
+
         } else {
           console.log("set bit to : " + setValue + " of tag " + location);
         }
@@ -137,50 +139,51 @@ const SensorSettings = () => {
       });
   }, [upperLimit, lowerLimit]);
 
+  const SensorValueColumns = (index) => {
+    let length = sensorInput.length;
+    let ret = [];
+    sensorInput.forEach(
+      (val, i) => {
+        if (i % (length / 4) == index) {
+          ret.push(
+            <FreqInput
+              i={i}
+              key={i}
+              input={sensorInput[i]}
+              frequencyInput={frequencyInput}
+            />
+          )
+
+        }
+      }
+    )
+    return (
+      <div className="freq-inp-row">
+        {
+          ret.map(e=>e)
+        }
+      </div>
+    )
+  }
+
+
+
   return (
     <>
     <ChangeSensor />
-    <div className="sensor-settings-flex">
+    <div className="sensor-settings-flex sensor-settings-main">
       <div className="sensor-settings-left sensor-settings-col">
         <p className="sensor-settings-threshold-title ">
           Frequency band wise Threshold settings (dB):
         </p>
-        <div className="sensor-settings-sensor-input">
-          <div>
-            {sensorInput.map(
-              (input, i) =>
-                i + 1 < 10 && (
-                  <FreqInput
-                  i={i}
-                  input={sensorInput[i]}
-                  frequencyInput={frequencyInput}
-                  />
-                  )
-                  )}
-            {sensorInput.map(
-              (input, i) =>
-              i + 1 >= 10 &&
-              i + 1 <= 16 && (
-                <FreqInput
-                i={i}
-                input={sensorInput[i]}
-                frequencyInput={frequencyInput}
-                />
-                )
-                )}
-          </div>
-          <div>
-            {sensorInput.map(
-              (input, i) =>
-              i + 1 > 16 && (
-                <FreqInput
-                i={i}
-                input={sensorInput[i]}
-                frequencyInput={frequencyInput}
-                />
-                )
-                )}
-          </div>
+        <div 
+        className="sensor-settings-sensor-input"
+        >
+          {
+            '1'.repeat(10).split('').map((val, i) => {
+              return SensorValueColumns(i);
+            })
+          }
         </div>
       </div>
       <div className="sensor-settings-right">
@@ -281,13 +284,12 @@ const SensorSettings = () => {
             ))}
         </div>
         <div>
-          <img
-            src={SaveSettings}
-            className="sensor-settings-main-button1"
+          <Button3d
+          style={{width:"40rem"}}
             onClick={() => {
               writeBack(179, 1);
             }}
-            />
+          > Save Settings</Button3d>
           <img
             src={CopySettings}
             className="sensor-settings-main-button2"
