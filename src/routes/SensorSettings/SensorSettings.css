@@ -5,7 +5,7 @@
 }
 
 .sensor-settings-main{
-    padding:2rem;
+    padding:1rem;
 }
 
 .sensor-settings-sensor-input {
@@ -111,4 +111,10 @@ input[type=number] {
 
 .freq-inp{
     width:30rem;
+}
+
+.bottom-buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

@@ -16,7 +16,7 @@ import ChangeSensor from "../Change-sensor/Change-sensor";
 
 const SensorSettings = () => {
   const [sensorInput, setSensorInput] = useState([]);
-
+  const [dummy,setDummy] = useState(false);
   const [alarmThresh, setAlarmThresh] = useState(60);
   const [delaySetpoint, setDelaySetpoint] = useState(0);
   const [lowerLimit, setLowerLimit] = useState(40);
@@ -44,7 +44,7 @@ const SensorSettings = () => {
         setLowerLimit(data.lowerLimit[0]);
         setUpperLimit(data.upperLimit[0]);
       });
-  }, []);
+  }, [dummy]);
 
   let buttonList = [
     { btn: PurgeLog, setValue: 0 },
@@ -170,7 +170,7 @@ const SensorSettings = () => {
 
   return (
     <>
-    <ChangeSensor />
+    <ChangeSensor callback={setDummy}/>
     <div className="sensor-settings-flex sensor-settings-main">
       <div className="sensor-settings-left sensor-settings-col">
         <p className="sensor-settings-threshold-title ">
@@ -283,20 +283,19 @@ const SensorSettings = () => {
             />
             ))}
         </div>
-        <div>
+        <div className="bottom-buttons">
           <Button3d
           style={{width:"40rem"}}
             onClick={() => {
               writeBack(179, 1);
             }}
           > Save Settings</Button3d>
-          <img
-            src={CopySettings}
-            className="sensor-settings-main-button2"
+          <Button3d
+          style={{width:"40rem"}}
             onClick={() => {
               writeBack(178, 1);
             }}
-            />
+          > copy Settings</Button3d>
         </div>
       </div>
     </div>

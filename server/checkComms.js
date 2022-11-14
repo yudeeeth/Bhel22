@@ -1,6 +1,6 @@
 const { ExitStatus } = require('typescript');
 const { modbusClient } = require('./jsmwrapper.js');
-const modbus = new modbusClient(ip="127.0.0.1",port=5050);
+const modbus = new modbusClient(ip=process.argv[2],port=parseInt(process.argv[3]));
 modbus.setup();
 
 let globalInterval = 5000;
@@ -12,7 +12,7 @@ function sleep(ms) {
 const display = (message)=>{
     console.log("=======================================================================================")
     console.log(message)
-    console.log("=======================================================================================")
+    // console.log("=======================================================================================")
 }
 
 const testRead = async () => {

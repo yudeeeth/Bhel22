@@ -14,7 +14,7 @@ const ChangeSensor = (props) => {
             body: JSON.stringify({
                 q1: [9, [value]],
             })
-        })
+        }).then(_=>{if(props.callback) props.callback(e=>!e)});
     }
 
     const changeVal = (e) =>{
@@ -45,7 +45,7 @@ const ChangeSensor = (props) => {
     return (
     
         <div className="sens-nav">
-            <button className="sens-but btn-metal" onClick={_=>changeVal("-")}>left</button>
+            <button className="sens-but sens-left btn-metal" onClick={_=>changeVal("-")}>left</button>
             <input ref={inpref} onKeyDown={e=>onPressEnter(e)} onChange={e=>setRegValue(e.target.value)} value={regValue}></input>
             <button className="sens-but btn-metal" onClick={_=>changeVal("+")}>right</button>
         </div>

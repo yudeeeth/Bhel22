@@ -4,16 +4,20 @@
   align-items: center;
   width:100%;
   padding:1rem;
-  padding-right:2rem;
 }
 .sens-but {
-  margin-right: 0.1rem;
+  margin-right: 2rem;
   margin-left: 0.1rem;
   width: 6rem;
-
+  display: block;
+  box-sizing: border-box;
   height: 3rem;
   color: black;
   background-color: white;
+}
+
+.sens-left{
+  margin-right:0.1rem;
 }
 
 input {
