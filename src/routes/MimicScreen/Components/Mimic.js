@@ -18,7 +18,7 @@ const Mimic = (props ) => {
 	}
 
 	return (
-		<div className='mimic-display' style={{height:`${700*props.scale}px`,width:`${1250*props.scale}px`}}>
+		<div className='mimic-display shadow' style={{height:`${700*props.scale}px`,width:`${1250*props.scale}px`}}>
 			<div className='mimic-image-container' style={{translate: `-${100 + (props.scale-0.8)*125}px -${700*(1-props.scale)/2}px`,scale:`${props.scale}`}}>
 				{/* <> */}
 				<img className='mimic-display-bg' alt='sensor' src={bgImg}></img>

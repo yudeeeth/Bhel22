@@ -10,7 +10,7 @@ import ChangeChannel from './Components/ChangeChannel'
 
 const RealtimeTrend = () => {
     // const [duration, setDuration] = React.useState(0);
-    const [currentChannels,setCurrentChannels] = React.useState(3);
+    const [currentChannels,setCurrentChannels] = React.useState(1);
     const [values, setValues] = React.useState([]);
     const [lastTimestamp, setLastTimestamp] = React.useState(null);
     const [timescale,setTimescale] = React.useState('sec');

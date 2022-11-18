@@ -58,7 +58,7 @@ const SensorInput = ({requiredObj}) => {
 const SystemSettings = () => {
   const [requiredObj,setRequiredObj] = React.useState(null);
   const colors = ['black','red'];
-  useInterval(()=>{
+  React.useEffect(()=>{
     fetch('/read',{
       method: 'POST',
       headers: {
@@ -77,7 +77,7 @@ const SystemSettings = () => {
     .then(data => {
       setRequiredObj(data);
     })
-  },1000)
+  },[])
 
   return (
     <div className="system-settings-container">
@@ -213,8 +213,7 @@ const SystemSettings = () => {
                 >
                   Sensor Mapping :
                 </div>
-                <div style={{ fontWeight: "bold", color: "#b3b3b3" }}>
-                  [0-Not Connected 1-COM1 2-COM2]
+                <div style={{ fontWeight: "bold", color: "black" }}>
                 </div>
               </div>
             </div>

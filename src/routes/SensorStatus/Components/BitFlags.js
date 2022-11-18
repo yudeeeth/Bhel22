@@ -4,7 +4,7 @@ const BitFlags = (props) => {
   let colNum = props.columnNumber;
   //   console.log("bitflags", props.statusArray);
   const bitflags = [];
-  for (let i = 1; i <= 20; i++) bitflags.push(i);
+  for (let i = 0+props.start*20; i < 20+props.start*20; i++) bitflags.push(i);
 
   return (
     <div className="sensor-status-bitflag-col">
@@ -17,6 +17,8 @@ const BitFlags = (props) => {
             key={item}
             className="sensor-status-bitflag-box"
             style={{ backgroundColor: bg }}
+            onMouseIn={()=>document.getElementById(`${item+1}`).classList.add('hover')}
+            onMouseOut={()=>document.getElementById(`${item+1}`).classList.remove('hover')}
           ></div>
         );
       })}

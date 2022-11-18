@@ -34,7 +34,7 @@ const RealtimeGraph = (props) => {
   }
 
   return (
-    <div className='realtime-graph-container'>
+    <div className='realtime-graph-container shadow'>
       { console.log(transformProps())}
       <Line className='realtime-graph' data={transformProps()} options={{
         animation: false,

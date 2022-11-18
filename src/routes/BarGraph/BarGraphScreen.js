@@ -74,7 +74,7 @@ const BarGraphScreen = () => {
             justifyContent: "center",
           }}
         >
-            <div style={{ width: "1300px", height: "500px"}}>
+            <div className="shadow" style={{ width: "1300px", height: "650px"}}>
               <Bar
                 style={{ backgroundColor: "#d2c1ad" }}
                 data={{

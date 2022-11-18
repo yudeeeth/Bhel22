@@ -14,12 +14,30 @@ const { dbClient } = require('./dbwrapper.js');
 const db = new dbClient();
 db.setup();
 
+// current sync value
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+let globalInterval = 1000;
+let dataSync = new Array(400).fill(0);
+console.log(Array.isArray(dataSync));
+let getUpdateModbus = true;
+
+setInterval(async ()=>{
+    if(getUpdateModbus)
+    for(let i=0;i<4;i++){
+        let data = await modbus.readRegisters(i*100,100);
+        dataSync = [...dataSync.slice(0,i*100),...data.response._body._valuesAsArray,...dataSync.slice((i+1)*100,400)];
+        await sleep(globalInterval);
+    }
+},globalInterval);
+
 setInterval(async () => {
-    let data = await modbus.readRegisters(200,40);
-    data.response._body._valuesAsArray = data.response._body._valuesAsArray.map(v=>v%127);
+    let data = dataSync.slice(260,300);
+    data = data.map(v=>v%127);
     // console.log(data.response._body._valuesAsArray);
-    await db.insertData(JSON.stringify(data.response._body._valuesAsArray));
-},1000);
+    await db.insertData(JSON.stringify(data));
+},globalInterval);
 
 setInterval(async ()=>{
     await db.deleteBeforeThreeDays();
@@ -35,12 +53,24 @@ app.get('/isconnected', async(req,res)=>{
 app.post('/read',async(req,res)=>{
     let obj = {};
     for(let key in req.body){
-        let temp = await modbus.readRegisters(req.body[key][0],req.body[key][1]);
-        temp = temp.response.body.valuesAsArray.map(e=>e%127);
+        let temp = dataSync.slice(req.body[key][0],req.body[key][0]+req.body[key][1]);
+        temp = temp.map(e=>e%127);
         obj[key] = temp;
     }
     res.json(obj);
 })
+
+app.post('/set',async(req,res)=>{
+    let obj = {};
+    for(let key in req.body){
+        let temp =await modbus.readRegisters(req.body[key][0],1);
+        temp = temp.response._body._valuesAsArray[0];
+        temp = temp | 1<<req.body[key][1]
+        obj[key]=await modbus.writeRegisters(req.body[key][0],[temp]);
+    }
+    res.json(obj);
+})
+
 
 app.post('/write',async(req,res)=>{
     let obj = {};

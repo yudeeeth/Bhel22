@@ -12,6 +12,7 @@ import { Routes, Route } from 'react-router-dom';
 import SystemSettings from './routes/SystemSettings/SystemSettings';
 import Secure from './routes/Secure/secure';
 import Help from './routes/Help/help';
+import SensorProfile from './routes/SensorProfile/SensorProfile';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
           <Route path="/sensorstatus" element={<SensorStatus />} />
           <Route path="/sensorsettings" element={<Secure> <SensorSettings /> </Secure>} />
           <Route path="/help" element={<Help />} /> 
-          <Route path="/sensorProfile" element={<Secure> <SensorSettings /> </Secure>} /> 
+          <Route path="/sensorProfile" element={<SensorProfile />} /> 
           {/* 
           */}
         </Routes>

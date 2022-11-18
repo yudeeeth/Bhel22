@@ -1,0 +1,172 @@
+.sp-value{
+    width:1.5rem;
+    height:1.5rem;
+    border-radius: 100%;
+    outline: 2px solid black;
+    outline-offset: 2px;
+    background-color: grey;
+}
+
+.sp-item{
+    display: flex;
+}
+
+.sp-status {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    border:solid 2px black;
+    border-radius: 1rem;
+    padding:.5rem;
+    width:15rem;
+    background-color: rgb(215, 215, 215);
+    box-shadow: 0.5rem 0.5rem 1rem 0.25rem rgb(33, 33, 33);
+
+}
+
+.sp-value{
+   margin:0.5rem;
+}
+
+.sp-name{
+    margin:0.5rem;
+}
+
+.sp-title{
+    font-size:1.4rem;
+}
+
+.sensor-p-top, .sensor-p-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5rem;
+    padding:2rem;
+}
+
+.sensor-p-top{
+    padding-bottom:0;
+}
+
+.sensor-p-bottom{
+    padding-top:1rem;
+}
+.sp-t-item{
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.sp-dets{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    justify-content: center;
+    margin:1rem;
+    font-size: 1.5rem;
+    padding:1rem;
+    width:25rem;
+
+}
+
+.sp-location{
+    display: flex;
+    gap:0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sp-t-item{
+    display: flex;
+    justify-content: space-between;
+    gap:2rem;
+}
+
+.sp-vals{
+    width:10rem;
+    display:flex;
+}
+
+.sp-time{
+    font-size: 1.2rem;
+    padding:2rem;
+    width:25rem;
+}
+
+.sp-time-tit{
+    font-size:1.5rem;
+}
+
+.sensor-p-b-s1{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1rem;
+}
+
+.sp-diag{
+    height: 14rem;
+    flex-wrap: wrap;
+    width:25rem;
+    padding:2rem;
+}
+
+.sp-diag-title{
+    font-size: 1.5rem;
+}
+
+.sp-gr-left{
+    width:20rem;
+}
+
+.sp-gr{
+    display: flex;
+    gap:1rem;
+    justify-content: center;
+    border:solid 2px black;
+    border-radius: 1rem;
+    padding:1rem;
+    margin-right:1rem;
+    width:30rem;
+    background-color: rgb(215, 215, 215);
+    box-shadow: 0.5rem 0.5rem 1rem 0.25rem rgb(33, 33, 33);
+}
+
+.sp-gr-right{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lg{
+    padding:1rem;
+}
+
+.lg-line{
+    width:15rem;
+    outline: 2px solid red;
+    outline-offset: 2px;
+    height:1rem;
+    background: grey;
+    border-radius: 1rem;
+    margin:0.5rem;
+}
+
+.lg-val{
+    height:100%;
+    border-radius: 1rem;
+    background-color: red;
+}
+
+.sensor-p-top{
+    margin-top:0;
+    padding-top: 0px;
+}
+
+.sp-gr-row{
+    display: flex;
+    align-items: center;
+}

@@ -11,7 +11,7 @@ const ChannelNumbers = (props) => {
   return (
     <div className="sensor-status-channels">
       {bitflags.map((item) => (
-        <div className="sensor-status-channel-numbers" key={item}>
+        <div className="sensor-status-channel-numbers" id={item} key={item}>
           CH#{item}
           <span className="channel-line" key={item} />
         </div>

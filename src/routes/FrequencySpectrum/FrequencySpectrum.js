@@ -104,14 +104,14 @@ const FrequencySpectrum = () => {
   return (
     <div className='FrequencySpectrum'> 
     <div className='freq-title-container'>
-      <p className='Title'>Frequency Spectrum of the channel # {currentChannel + 1}</p> 
-    <ChangeSensor start={currentChannel + 1}/>
+      <p className='Title'>Frequency Spectrum of the channel # {currentChannel}</p> 
+    <ChangeSensor start={currentChannel} callback={setCurrentChannel}/>
 
     </div>
       <p className='dbValue'>Current dB value : {dB} dB </p> 
 
       <p className='graphHeader'>FFT Set Points in DB</p>
-      <div id="frequencyGraph">
+      <div id="frequencyGraph" class="shadow">
       <Bar data={input} options={options}  />
       </div>
     </div>

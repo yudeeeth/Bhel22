@@ -10,8 +10,8 @@
 .sonic {
   background-color: white;
   height: 4rem;
-  margin-left: 1.2rem;
-  margin-right: 1.2rem;
+  margin-right:0.5rem;
+  margin-left:0.5rem;
 }
 
 .bar-graph {
@@ -60,7 +60,6 @@
 .home-nav-btn {
   border-style: none;
   color: rgba(255, 255, 255, 1);
-  width: 20rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   height: 8.5rem;
@@ -78,19 +77,15 @@
   align-items: center;
   margin-top: 0.2rem;
   gap:1rem;
+  width:80rem;
 }
-
+/* 
 .flex-container-2>*{
-  display: block;
-  box-sizing: border-box;
-}
+
+} */
 
 .flex-container-3{
   padding-bottom:5rem;
-}
-
-.flex-container-1{
-  padding-top:5rem;
 }
 
 
@@ -110,8 +105,14 @@ img {
 
 .home-card{
   border:none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:25rem;
+  height:10rem;
 }
 
 .card{
   border:1px solid black;
+  box-shadow: 0.5rem 0.5rem 1rem 0.25rem rgb(33, 33, 33);
 }

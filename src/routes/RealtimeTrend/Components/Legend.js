@@ -22,7 +22,7 @@ const Legend = (props) => {
   }
 
   return (
-    <div className='legend-container'>
+    <div className='legend-container shadow'>
         <div className='legend-title'>Legend Db</div>
         {list()}
     </div>

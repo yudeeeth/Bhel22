@@ -1,24 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Change-sensor.css'
 
 const ChangeSensor = (props) => {
     const [regValue, setRegValue] = React.useState(props.start ?? 1);
     const inpref = React.useRef(null);
 
-    const changeSensor = (value) => {
-        fetch("/write", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                q1: [9, [value]],
-            })
-        }).then(_=>{if(props.callback) props.callback(e=>!e)});
+    useEffect(()=>{
+        changeSensor(regValue);
+    })
+
+    const isLegal=(n)=>{
+        return n>=1 && n<=40;
+    }
+
+    const changeSensor = (regValue) => {
+        if(isLegal(regValue)){
+            fetch("/write", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    q1: [9, [regValue]],
+                })
+            }).then(_=>{if(props.callback) {props.callback(regValue)}});
+        }
     }
 
     const changeVal = (e) =>{
-        onPressEnter({key:"Enter"})
         if(e=="+"){
             if(regValue>=40) setRegValue(1);
             else setRegValue(e=>parseInt(e)+1);
@@ -27,16 +36,14 @@ const ChangeSensor = (props) => {
             if(regValue<=1) setRegValue(40);
             else setRegValue(e=>parseInt(e)-1);
         }
+        changeSensor(regValue);
     }
 
-    const onPressEnter = (e) => {
-        if(e.key == 'Enter'){
-            if(inpref.current.value > 0 && inpref.current.value <= 40)
-                {
-                    changeSensor(inpref.current.value);
-                }
+    const onPressEnter = (e)=>{
+        if(e.key=="Enter"){
+            if(isLegal(inpref.current.value))
+                changeSensor(regValue);
             else{
-                inpref.current.value = 1;
                 changeSensor(1);
             }
         }
@@ -44,7 +51,7 @@ const ChangeSensor = (props) => {
 
     return (
     
-        <div className="sens-nav">
+        <div className="sens-nav" style={props.style}>
             <button className="sens-but sens-left btn-metal" onClick={_=>changeVal("-")}>left</button>
             <input ref={inpref} onKeyDown={e=>onPressEnter(e)} onChange={e=>setRegValue(e.target.value)} value={regValue}></input>
             <button className="sens-but btn-metal" onClick={_=>changeVal("+")}>right</button>

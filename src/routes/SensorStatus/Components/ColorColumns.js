@@ -31,6 +31,7 @@ const ColorColumns = (props) => {
             columnNumber={item.id}
             statusArray={props.statusArray}
             shiftVal={item.shift}
+            start={props.start}
           />
         </div>
       ))}
