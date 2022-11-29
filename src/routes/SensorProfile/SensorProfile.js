@@ -44,7 +44,7 @@ const SensorProfile = () => {
   return (
     <div className='sensor-profile-main'>
       <div className='sensor-p-top'>
-        <Mimic leak={sensorflags} dbArray={sensorValues} scale={0.5} />
+        <Mimic font={1} leak={sensorflags} dbArray={sensorValues} scale={0.5} />
         {currentSens && <SensorDetails />}
         <div>
           <ChangeSensor start={currentSens} callback={setCurrentSens} />

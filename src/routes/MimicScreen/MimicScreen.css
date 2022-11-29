@@ -28,3 +28,18 @@
 .mimic-right-side{
     color:red;
 }
+
+.mimic-flex-container{
+    display: flex;
+    align-items: center;
+}
+
+.mimic-hint-container{
+    width:15rem;
+    border-radius: 2rem;
+    border:2px solid black;
+    background: white;
+    font-size:1.2rem;
+    padding:2rem;
+    height:5rem;
+}

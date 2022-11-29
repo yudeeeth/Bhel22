@@ -16,9 +16,16 @@ const SensorDot = (props) => {
         id={props.index} 
         style={{ top: `${props.coord[1]}px`, left: `${props.coord[0]}px` }} 
         onChange={(e) => { props.changeCoord(e); }}
-        onMouseLeave={()=>{setHideHint(true)}} 
-        onMouseEnter={(e)=>{ if(['sensor-dots','sensor-dots-inner'].includes(e.target.className)) setHideHint(false);}}
-        onMouseMove={(e)=>{ if(['sensor-dots','sensor-dots-inner'].includes(e.target.className)) setHideHint(false);}}
+        onMouseLeave={()=>{
+            props.setSelectedSens(0)
+            //  setHideHint(true)
+            }} 
+        onMouseEnter={(e)=>{ 
+            if(['sensor-dots','sensor-dots-inner'].includes(e.target.className)) 
+                props.setSelectedSens(props.index);    
+            // setHideHint(false);
+            }}
+        // onMouseMove={(e)=>{ if(['sensor-dots','sensor-dots-inner'].includes(e.target.className)) setHideHint(false);}}
         > 
             <div className='sensor-dots-inner' blink={red.toString()}>
                 {parseInt(props.index) + 1}

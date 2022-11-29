@@ -16,7 +16,7 @@ import ChangeSensor from "../Change-sensor/Change-sensor";
 
 const SensorSettings = () => {
   const [sensorInput, setSensorInput] = useState([]);
-  const [dummy,setDummy] = useState(false);
+  const [dummy, setDummy] = useState(false);
   const [alarmThresh, setAlarmThresh] = useState(60);
   const [delaySetpoint, setDelaySetpoint] = useState(0);
   const [lowerLimit, setLowerLimit] = useState(40);
@@ -47,12 +47,12 @@ const SensorSettings = () => {
   }, [dummy]);
 
   let buttonList = [
-    { btn: PurgeLog, setValue: 0 },
-    { btn: CalLog, setValue: 1 },
-    { btn: PowerLog, setValue: 2 },
-    { btn: ErrorLog, setValue: 3 },
-    { btn: LeakLog, setValue: 4 },
-    { btn: AllLogs, setValue: 5 },
+    { btn: PurgeLog, setValue: 0, val: "Purge Log" },
+    { btn: CalLog, setValue: 1, val: "Call Log" },
+    { btn: PowerLog, setValue: 2, val: "Power Log" },
+    { btn: ErrorLog, setValue: 3, val: "Error Log" },
+    { btn: LeakLog, setValue: 4, val: "Leak Log" },
+    { btn: AllLogs, setValue: 5, val: "All Logs" },
   ];
 
   const writeBack = (location, setValue) => {
@@ -160,7 +160,7 @@ const SensorSettings = () => {
     return (
       <div className="freq-inp-row">
         {
-          ret.map(e=>e)
+          ret.map(e => e)
         }
       </div>
     )
@@ -170,135 +170,140 @@ const SensorSettings = () => {
 
   return (
     <>
-    <ChangeSensor callback={setDummy}/>
-    <div className="sensor-settings-flex sensor-settings-main">
-      <div className="sensor-settings-left sensor-settings-col">
-        <p className="sensor-settings-threshold-title ">
-          Frequency band wise Threshold settings (dB):
-        </p>
-        <div 
-        className="sensor-settings-sensor-input"
-        >
-          {
-            '1'.repeat(10).split('').map((val, i) => {
-              return SensorValueColumns(i);
-            })
-          }
-        </div>
-      </div>
-      <div className="sensor-settings-right">
-        <div className="sensor-settings-col">
-          <p className="sensor-settings-alarm-title ">Sensor Alarm Settings:</p>
-          <div className="sensor-settings-alarm">
-            <div>
-              <p
-                style={
-                  alarmThresh < 60 || alarmThresh > 120 ? { color: "red" } : {}
-                }
-                >
-                Alarm Threshold (dB){" "}
-              </p>
-              <p
-                style={
-                  delaySetpoint < 0 || delaySetpoint > 30
-                  ? { color: "red" }
-                  : {}
-                }
-                >
-                Delay Setpoint (s){" "}
-              </p>
-            </div>
-            <div>
-              <input
-                className="sensor-settings-alarm-input"
-                value={alarmThresh}
-                onChange={(inp) => {
-                  setAlarmThresh(inp.target.value);
-                }}
-                type="number"
-                />
-              <br />
-              <input
-                className="sensor-settings-alarm-input"
-                value={delaySetpoint}
-                onChange={(inp) => {
-                  setDelaySetpoint(inp.target.value);
-                }}
-                type="number"
-                />
-            </div>
+      <ChangeSensor callback={setDummy} />
+      <div className="sensor-settings-flex sensor-settings-main">
+        <div className="sensor-settings-left sensor-settings-col">
+          <p className="sensor-settings-threshold-title ">
+            Frequency band wise Threshold settings (dB):
+          </p>
+          <div
+            className="sensor-settings-sensor-input"
+          >
+            {
+              '1'.repeat(10).split('').map((val, i) => {
+                return SensorValueColumns(i);
+              })
+            }
+          </div>
+          <div className="error-legend-con">
+            <div className="error-legend"></div> Indicates error
+            
           </div>
         </div>
-        <div className="sensor-settings-col">
-          <p className="sensor-settings-nominal-title ">Nominal Sound Level:</p>
-          <div className="sensor-settings-nominal">
-            <div>
-              <p
-                style={
-                  lowerLimit < 40 || lowerLimit > 60 ? { color: "red" } : {}
-                }
+        <div className="sensor-settings-right">
+          <div className="sensor-settings-col">
+            <p className="sensor-settings-alarm-title ">Sensor Alarm Settings:</p>
+            <div className="sensor-settings-alarm">
+              <div>
+                <p
+                  style={
+                    alarmThresh < 60 || alarmThresh > 120 ? { color: "red" } : {}
+                  }
                 >
-                Lower Limit (dB){" "}
-              </p>
-              <p
-                style={
-                  upperLimit < 100 || upperLimit > 120 ? { color: "red" } : {}
-                }
+                  Alarm Threshold (dB){" "}
+                </p>
+                <p
+                  style={
+                    delaySetpoint < 0 || delaySetpoint > 30
+                      ? { color: "red" }
+                      : {}
+                  }
                 >
-                Upper Limit (dB){" "}
-              </p>
-            </div>
-            <div>
-              <input
-                className="sensor-settings-alarm-input"
-                value={lowerLimit}
-                onChange={(inp) => {
-                  setLowerLimit(inp.target.value);
-                }}
-                type="number"
+                  Delay Setpoint (s){" "}
+                </p>
+              </div>
+              <div>
+                <input
+                  className="sensor-settings-alarm-input"
+                  value={alarmThresh}
+                  onChange={(inp) => {
+                    setAlarmThresh(inp.target.value);
+                  }}
+                  type="number"
                 />
-              <br />
-              <input
-                className="sensor-settings-alarm-input"
-                value={upperLimit}
-                onChange={(inp) => {
-                  setUpperLimit(inp.target.value);
-                }}
-                type="number"
+                <br />
+                <input
+                  className="sensor-settings-alarm-input"
+                  value={delaySetpoint}
+                  onChange={(inp) => {
+                    setDelaySetpoint(inp.target.value);
+                  }}
+                  type="number"
                 />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="sensor-settings-col">
-          <p className="sensor-settings-reset-title ">Reset:</p>
-          {buttonList.map((button, i) => (
-            <img
-            src={button.btn}
-            className="sensor-settings-reset-button"
-            onClick={() => {
-              //454 gives error
-              writeBack(0, button.setValue);
-            }}
-            key={i}
-            />
-            ))}
-        </div>
-        <div className="bottom-buttons">
-          <Button3d
-          style={{width:"40rem"}}
-            onClick={() => {
-              writeBack(179, 1);
-            }}
-          > Save Settings</Button3d>
-          <Button3d
-          style={{width:"40rem"}}
-            onClick={() => {
-              writeBack(178, 1);
-            }}
-          > copy Settings</Button3d>
+          <div className="sensor-settings-col">
+            <p className="sensor-settings-nominal-title ">Nominal Sound Level:</p>
+            <div className="sensor-settings-nominal">
+              <div>
+                <p
+                  style={
+                    lowerLimit < 40 || lowerLimit > 60 ? { color: "red" } : {}
+                  }
+                >
+                  Lower Limit (dB){" "}
+                </p>
+                <p
+                  style={
+                    upperLimit < 100 || upperLimit > 120 ? { color: "red" } : {}
+                  }
+                >
+                  Upper Limit (dB){" "}
+                </p>
+              </div>
+              <div>
+                <input
+                  className="sensor-settings-alarm-input"
+                  value={lowerLimit}
+                  onChange={(inp) => {
+                    setLowerLimit(inp.target.value);
+                  }}
+                  type="number"
+                />
+                <br />
+                <input
+                  className="sensor-settings-alarm-input"
+                  value={upperLimit}
+                  onChange={(inp) => {
+                    setUpperLimit(inp.target.value);
+                  }}
+                  type="number"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="sensor-settings-col">
+            <p className="sensor-settings-reset-title ">Reset:</p>
+            <div className="sensor-settings-buttons-con">
+              {buttonList.map((button, i) => (
+                <Button3d
+                  className="sensor-settings-reset-button"
+                  onClick={() => {
+                    //454 gives error
+                    writeBack(0, button.setValue);
+                  }}
+                  key={i}
+                > {button.val} </Button3d>
+              ))}
+            </div>
+          </div>
+          <div className="bottom-buttons">
+            <Button3d
+              style={{ width: "40rem" }}
+              onClick={() => {
+                writeBack(179, 1);
+              }}
+            > Save Settings</Button3d>
+            <Button3d
+              style={{ width: "40rem" }}
+              onClick={() => {
+                writeBack(178, 1);
+              }}
+            > copy Settings</Button3d>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

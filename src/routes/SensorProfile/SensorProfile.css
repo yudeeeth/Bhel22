@@ -44,6 +44,7 @@
     padding:2rem;
 }
 
+
 .sensor-p-top{
     padding-bottom:0;
 }
@@ -164,6 +165,7 @@
 .sensor-p-top{
     margin-top:0;
     padding-top: 0px;
+    gap:0px;
 }
 
 .sp-gr-row{

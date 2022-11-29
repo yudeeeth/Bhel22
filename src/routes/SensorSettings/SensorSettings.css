@@ -118,3 +118,28 @@ input[type=number] {
     justify-content: space-around;
     align-items: center;
 }
+
+.sensor-settings-buttons-con{
+    display: flex;
+    flex-wrap: wrap;
+    gap:3rem;
+    padding-left:2rem;
+}
+
+.sensor-settings-reset-button{
+    width:20rem;
+}
+
+.error-legend{
+    border:2px solid red;
+    width:12rem;
+    height:3rem;
+    display: inline-block;
+    margin-left:1rem;
+}
+
+.error-legend-con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

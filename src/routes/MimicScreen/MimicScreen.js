@@ -8,7 +8,7 @@ const MimicScreen = () => {
   const [sensorflags, setSensorflags] = React.useState([])
   // const [scale, setScale] = React.useState(1)
   useInterval(() => {
-    fetch('/read',{
+    fetch('/read', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -16,24 +16,26 @@ const MimicScreen = () => {
       body: JSON.stringify({
         q1: [200, 40],
         q2: [260, 40]
-      }) 
+      })
     })
-    .then(res => res.json())
-    .then(data => {
-      setSensorValues(data.q1.map(e => 40 + e % 81));
-      let flags = [];
-      for (let i = 0; i < data.q2.length; i++) {
-        if ((data.q2[i] & 1) === 1) {
-          flags.push(i + 1);
+      .then(res => res.json())
+      .then(data => {
+        setSensorValues(data.q1.map(e => 40 + e % 81));
+        let flags = [];
+        for (let i = 0; i < data.q2.length; i++) {
+          if ((data.q2[i] & 1) === 1) {
+            flags.push(i + 1);
+          }
         }
-      }
-      setSensorflags(flags);
-    })
+        setSensorflags(flags);
+      })
   }, 1000)
   return (
     <div className='mimic-screen-main'>
       <div className='mimic-screen-title'> Mimic Screen </div>
-      <Mimic leak={sensorflags} dbArray={sensorValues} scale={0.8}/>
+      <div className='mimic-flex-container'>
+        <Mimic font={1.2} leak={sensorflags} dbArray={sensorValues} scale={0.8} />
+      </div>
       <div className='mimic-side-container'>
         <div className='mimic-side mimic-left-side'> Left Side</div>
         <div className='mimic-side mimic-right-side'> Right Side</div>
